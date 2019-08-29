@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.GameInviteMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.GameInvite" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="gameId" property="gameid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="gameSlogan" property="gameslogan" jdbcType="NVARCHAR" />
+    <result column="gameTitle" property="gametitle" jdbcType="NVARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.GameInvite" >
+    insert into game_invite (id, gameId, userId, 
+      gameSlogan, gameTitle, createTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{gameid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+      #{gameslogan,jdbcType=NVARCHAR}, #{gametitle,jdbcType=NVARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.GameInvite" >
+    insert into game_invite
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gameid != null" >
+        gameId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="gameslogan != null" >
+        gameSlogan,
+      </if>
+      <if test="gametitle != null" >
+        gameTitle,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="gameid != null" >
+        #{gameid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="gameslogan != null" >
+        #{gameslogan,jdbcType=NVARCHAR},
+      </if>
+      <if test="gametitle != null" >
+        #{gametitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

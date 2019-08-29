@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.ShopBannerMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.ShopBanner" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="city" property="city" jdbcType="NVARCHAR" />
+    <result column="shopBanner" property="shopbanner" jdbcType="NVARCHAR" />
+    <result column="shopId" property="shopid" jdbcType="INTEGER" />
+    <result column="shopUrl" property="shopurl" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.ShopBanner" >
+    insert into shop_banner (id, city, shopBanner, 
+      shopId, shopUrl)
+    values (#{id,jdbcType=INTEGER}, #{city,jdbcType=NVARCHAR}, #{shopbanner,jdbcType=NVARCHAR}, 
+      #{shopid,jdbcType=INTEGER}, #{shopurl,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.ShopBanner" >
+    insert into shop_banner
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="shopbanner != null" >
+        shopBanner,
+      </if>
+      <if test="shopid != null" >
+        shopId,
+      </if>
+      <if test="shopurl != null" >
+        shopUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=NVARCHAR},
+      </if>
+      <if test="shopbanner != null" >
+        #{shopbanner,jdbcType=NVARCHAR},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
+      </if>
+      <if test="shopurl != null" >
+        #{shopurl,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

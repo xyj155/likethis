@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.FeedbackUrlMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.FeedbackUrl" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="feedBackUrl" property="feedbackurl" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.FeedbackUrl" >
+    insert into user_feed_back_url (id, feedBackUrl)
+    values (#{id,jdbcType=INTEGER}, #{feedbackurl,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.FeedbackUrl" >
+    insert into user_feed_back_url
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="feedbackurl != null" >
+        feedBackUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="feedbackurl != null" >
+        #{feedbackurl,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

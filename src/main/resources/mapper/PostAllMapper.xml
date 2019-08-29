@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.PostAllMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.PostAll" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="postContent" property="postcontent" jdbcType="LONGNVARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="topicType" property="topictype" jdbcType="NVARCHAR" />
+    <result column="commentCount" property="commentcount" jdbcType="NVARCHAR" />
+    <result column="thumbCount" property="thumbcount" jdbcType="NVARCHAR" />
+    <result column="shareCount" property="sharecount" jdbcType="NVARCHAR" />
+    <result column="postTopic" property="posttopic" jdbcType="NVARCHAR" />
+    <result column="postType" property="posttype" jdbcType="INTEGER" />
+    <result column="duration" property="duration" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.PostAll" >
+    insert into user_post_all (id, userId, postContent, 
+      createTime, topicType, commentCount, 
+      thumbCount, shareCount, postTopic, 
+      postType, duration)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{postcontent,jdbcType=LONGNVARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{topictype,jdbcType=NVARCHAR}, #{commentcount,jdbcType=NVARCHAR}, 
+      #{thumbcount,jdbcType=NVARCHAR}, #{sharecount,jdbcType=NVARCHAR}, #{posttopic,jdbcType=NVARCHAR}, 
+      #{posttype,jdbcType=INTEGER}, #{duration,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.PostAll" >
+    insert into user_post_all
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="postcontent != null" >
+        postContent,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="topictype != null" >
+        topicType,
+      </if>
+      <if test="commentcount != null" >
+        commentCount,
+      </if>
+      <if test="thumbcount != null" >
+        thumbCount,
+      </if>
+      <if test="sharecount != null" >
+        shareCount,
+      </if>
+      <if test="posttopic != null" >
+        postTopic,
+      </if>
+      <if test="posttype != null" >
+        postType,
+      </if>
+      <if test="duration != null" >
+        duration,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="postcontent != null" >
+        #{postcontent,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="topictype != null" >
+        #{topictype,jdbcType=NVARCHAR},
+      </if>
+      <if test="commentcount != null" >
+        #{commentcount,jdbcType=NVARCHAR},
+      </if>
+      <if test="thumbcount != null" >
+        #{thumbcount,jdbcType=NVARCHAR},
+      </if>
+      <if test="sharecount != null" >
+        #{sharecount,jdbcType=NVARCHAR},
+      </if>
+      <if test="posttopic != null" >
+        #{posttopic,jdbcType=NVARCHAR},
+      </if>
+      <if test="posttype != null" >
+        #{posttype,jdbcType=INTEGER},
+      </if>
+      <if test="duration != null" >
+        #{duration,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

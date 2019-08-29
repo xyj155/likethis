@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.SnackAllMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.SnackAll" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="foodName" property="foodname" jdbcType="NVARCHAR" />
+    <result column="foodsPrice" property="foodsprice" jdbcType="DECIMAL" />
+    <result column="foodsSize" property="foodssize" jdbcType="NVARCHAR" />
+    <result column="foodPicture" property="foodpicture" jdbcType="NVARCHAR" />
+    <result column="activityId" property="activityid" jdbcType="INTEGER" />
+    <result column="kindId" property="kindid" jdbcType="INTEGER" />
+    <result column="foodsOwner" property="foodsowner" jdbcType="NVARCHAR" />
+    <result column="isShow" property="isshow" jdbcType="NVARCHAR" />
+    <result column="needCount" property="needcount" jdbcType="NVARCHAR" />
+    <result column="foodsOrign" property="foodsorign" jdbcType="NVARCHAR" />
+    <result column="snackKindId" property="snackkindid" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.SnackAll" >
+    insert into snack_all (id, foodName, foodsPrice, 
+      foodsSize, foodPicture, activityId, 
+      kindId, foodsOwner, isShow, 
+      needCount, foodsOrign, snackKindId
+      )
+    values (#{id,jdbcType=INTEGER}, #{foodname,jdbcType=NVARCHAR}, #{foodsprice,jdbcType=DECIMAL}, 
+      #{foodssize,jdbcType=NVARCHAR}, #{foodpicture,jdbcType=NVARCHAR}, #{activityid,jdbcType=INTEGER}, 
+      #{kindid,jdbcType=INTEGER}, #{foodsowner,jdbcType=NVARCHAR}, #{isshow,jdbcType=NVARCHAR}, 
+      #{needcount,jdbcType=NVARCHAR}, #{foodsorign,jdbcType=NVARCHAR}, #{snackkindid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.SnackAll" >
+    insert into snack_all
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="foodname != null" >
+        foodName,
+      </if>
+      <if test="foodsprice != null" >
+        foodsPrice,
+      </if>
+      <if test="foodssize != null" >
+        foodsSize,
+      </if>
+      <if test="foodpicture != null" >
+        foodPicture,
+      </if>
+      <if test="activityid != null" >
+        activityId,
+      </if>
+      <if test="kindid != null" >
+        kindId,
+      </if>
+      <if test="foodsowner != null" >
+        foodsOwner,
+      </if>
+      <if test="isshow != null" >
+        isShow,
+      </if>
+      <if test="needcount != null" >
+        needCount,
+      </if>
+      <if test="foodsorign != null" >
+        foodsOrign,
+      </if>
+      <if test="snackkindid != null" >
+        snackKindId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="foodname != null" >
+        #{foodname,jdbcType=NVARCHAR},
+      </if>
+      <if test="foodsprice != null" >
+        #{foodsprice,jdbcType=DECIMAL},
+      </if>
+      <if test="foodssize != null" >
+        #{foodssize,jdbcType=NVARCHAR},
+      </if>
+      <if test="foodpicture != null" >
+        #{foodpicture,jdbcType=NVARCHAR},
+      </if>
+      <if test="activityid != null" >
+        #{activityid,jdbcType=INTEGER},
+      </if>
+      <if test="kindid != null" >
+        #{kindid,jdbcType=INTEGER},
+      </if>
+      <if test="foodsowner != null" >
+        #{foodsowner,jdbcType=NVARCHAR},
+      </if>
+      <if test="isshow != null" >
+        #{isshow,jdbcType=NVARCHAR},
+      </if>
+      <if test="needcount != null" >
+        #{needcount,jdbcType=NVARCHAR},
+      </if>
+      <if test="foodsorign != null" >
+        #{foodsorign,jdbcType=NVARCHAR},
+      </if>
+      <if test="snackkindid != null" >
+        #{snackkindid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

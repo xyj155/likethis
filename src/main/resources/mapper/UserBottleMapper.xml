@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.UserBottleMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.UserBottle" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="NVARCHAR" />
+    <result column="city" property="city" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.UserBottle" >
+    insert into user_bottle (id, userId, createTime, 
+      content, city)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=NVARCHAR}, #{city,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.UserBottle" >
+    insert into user_bottle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=NVARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

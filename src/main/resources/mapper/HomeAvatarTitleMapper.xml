@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fastchar.likethis.dao.HomeAvatarTitleMapper">
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.HomeAvatarTitle">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="activeName" jdbcType="NVARCHAR" property="activename" />
+    <result column="activePicture" jdbcType="NVARCHAR" property="activepicture" />
+    <result column="activeSorted" jdbcType="NVARCHAR" property="activesorted" />
+  </resultMap>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select  *  from  mango.home_active_name
+  </select>
+
+
+</mapper>

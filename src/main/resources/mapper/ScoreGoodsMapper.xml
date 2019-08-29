@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.ScoreGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.ScoreGoods" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="goodsName" property="goodsname" jdbcType="NVARCHAR" />
+    <result column="scoreSpend" property="scorespend" jdbcType="NVARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="NVARCHAR" />
+    <result column="giftImageUrl" property="giftimageurl" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.ScoreGoods" >
+    insert into score_goods (id, goodsName, scoreSpend, 
+      createTime, type, giftImageUrl
+      )
+    values (#{id,jdbcType=INTEGER}, #{goodsname,jdbcType=NVARCHAR}, #{scorespend,jdbcType=NVARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{type,jdbcType=NVARCHAR}, #{giftimageurl,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.ScoreGoods" >
+    insert into score_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="goodsname != null" >
+        goodsName,
+      </if>
+      <if test="scorespend != null" >
+        scoreSpend,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="giftimageurl != null" >
+        giftImageUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="goodsname != null" >
+        #{goodsname,jdbcType=NVARCHAR},
+      </if>
+      <if test="scorespend != null" >
+        #{scorespend,jdbcType=NVARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=NVARCHAR},
+      </if>
+      <if test="giftimageurl != null" >
+        #{giftimageurl,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

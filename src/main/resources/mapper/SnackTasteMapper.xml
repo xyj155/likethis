@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.SnackTasteMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.SnackTaste" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="foodsTaste" property="foodstaste" jdbcType="NVARCHAR" />
+    <result column="foodsId" property="foodsid" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.SnackTaste" >
+    insert into snack_taste (id, foodsTaste, foodsId
+      )
+    values (#{id,jdbcType=INTEGER}, #{foodstaste,jdbcType=NVARCHAR}, #{foodsid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.SnackTaste" >
+    insert into snack_taste
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="foodstaste != null" >
+        foodsTaste,
+      </if>
+      <if test="foodsid != null" >
+        foodsId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="foodstaste != null" >
+        #{foodstaste,jdbcType=NVARCHAR},
+      </if>
+      <if test="foodsid != null" >
+        #{foodsid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

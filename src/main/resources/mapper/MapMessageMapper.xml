@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.MapMessageMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.MapMessage" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="message" property="message" jdbcType="NVARCHAR" />
+    <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
+    <result column="longitude" property="longitude" jdbcType="NVARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="NVARCHAR" />
+    <result column="findUserId" property="finduserid" jdbcType="INTEGER" />
+    <result column="location" property="location" jdbcType="NVARCHAR" />
+    <result column="city" property="city" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.MapMessage" >
+    insert into map_message (id, userId, message, 
+      creatTime, longitude, latitude, 
+      findUserId, location, city
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{message,jdbcType=NVARCHAR}, 
+      #{creattime,jdbcType=TIMESTAMP}, #{longitude,jdbcType=NVARCHAR}, #{latitude,jdbcType=NVARCHAR}, 
+      #{finduserid,jdbcType=INTEGER}, #{location,jdbcType=NVARCHAR}, #{city,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.MapMessage" >
+    insert into map_message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="message != null" >
+        message,
+      </if>
+      <if test="creattime != null" >
+        creatTime,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="finduserid != null" >
+        findUserId,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=NVARCHAR},
+      </if>
+      <if test="creattime != null" >
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="finduserid != null" >
+        #{finduserid,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=NVARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

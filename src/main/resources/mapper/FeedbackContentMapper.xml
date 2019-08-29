@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.FeedbackContentMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.FeedbackContent" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="feedType" property="feedtype" jdbcType="NVARCHAR" />
+    <result column="feedContent" property="feedcontent" jdbcType="NVARCHAR" />
+    <result column="contactTel" property="contacttel" jdbcType="NVARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.FeedbackContent" >
+    insert into user_feed_back (id, userId, feedType, 
+      feedContent, contactTel, time
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{feedtype,jdbcType=NVARCHAR}, 
+      #{feedcontent,jdbcType=NVARCHAR}, #{contacttel,jdbcType=NVARCHAR}, #{time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.FeedbackContent" >
+    insert into user_feed_back
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="feedtype != null" >
+        feedType,
+      </if>
+      <if test="feedcontent != null" >
+        feedContent,
+      </if>
+      <if test="contacttel != null" >
+        contactTel,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="feedtype != null" >
+        #{feedtype,jdbcType=NVARCHAR},
+      </if>
+      <if test="feedcontent != null" >
+        #{feedcontent,jdbcType=NVARCHAR},
+      </if>
+      <if test="contacttel != null" >
+        #{contacttel,jdbcType=NVARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.User" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="NVARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="NVARCHAR" />
+    <result column="sex" property="sex" jdbcType="NVARCHAR" />
+    <result column="city" property="city" jdbcType="NVARCHAR" />
+    <result column="school" property="school" jdbcType="NVARCHAR" />
+    <result column="major" property="major" jdbcType="NVARCHAR" />
+    <result column="birth" property="birth" jdbcType="NVARCHAR" />
+    <result column="signature" property="signature" jdbcType="NVARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="NVARCHAR" />
+    <result column="qq_id" property="qqId" jdbcType="NVARCHAR" />
+    <result column="hot" property="hot" jdbcType="NVARCHAR" />
+    <result column="fans" property="fans" jdbcType="NVARCHAR" />
+    <result column="observe" property="observe" jdbcType="NVARCHAR" />
+    <result column="score" property="score" jdbcType="NVARCHAR" />
+    <result column="isOnline" property="isonline" jdbcType="NVARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="NVARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="NVARCHAR" />
+    <result column="currentCity" property="currentcity" jdbcType="NVARCHAR" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="vipDate" property="vipdate" jdbcType="NVARCHAR" />
+    <result column="isVip" property="isvip" jdbcType="NVARCHAR" />
+    <result column="isPermit" property="ispermit" jdbcType="NVARCHAR" />
+    <result column="page" property="page" jdbcType="INTEGER" />
+    <result column="isRoboot" property="isroboot" jdbcType="NVARCHAR" />
+    <result column="isAllowPlay" property="isallowplay" jdbcType="NVARCHAR" />
+    <result column="gameType" property="gametype" jdbcType="NVARCHAR" />
+    <result column="gameDesc" property="gamedesc" jdbcType="NVARCHAR" />
+    <result column="isInvite" property="isinvite" jdbcType="NVARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.User" >
+    insert into user (id, username, avatar, 
+      sex, city, school, 
+      major, birth, signature, 
+      nickname, qq_id, hot, 
+      fans, observe, score, 
+      isOnline, longitude, latitude, 
+      currentCity, updateTime, vipDate, 
+      isVip, isPermit, page, 
+      isRoboot, isAllowPlay, gameType, 
+      gameDesc, isInvite, createTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=NVARCHAR}, #{avatar,jdbcType=NVARCHAR}, 
+      #{sex,jdbcType=NVARCHAR}, #{city,jdbcType=NVARCHAR}, #{school,jdbcType=NVARCHAR}, 
+      #{major,jdbcType=NVARCHAR}, #{birth,jdbcType=NVARCHAR}, #{signature,jdbcType=NVARCHAR}, 
+      #{nickname,jdbcType=NVARCHAR}, #{qqId,jdbcType=NVARCHAR}, #{hot,jdbcType=NVARCHAR}, 
+      #{fans,jdbcType=NVARCHAR}, #{observe,jdbcType=NVARCHAR}, #{score,jdbcType=NVARCHAR}, 
+      #{isonline,jdbcType=NVARCHAR}, #{longitude,jdbcType=NVARCHAR}, #{latitude,jdbcType=NVARCHAR}, 
+      #{currentcity,jdbcType=NVARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{vipdate,jdbcType=NVARCHAR}, 
+      #{isvip,jdbcType=NVARCHAR}, #{ispermit,jdbcType=NVARCHAR}, #{page,jdbcType=INTEGER}, 
+      #{isroboot,jdbcType=NVARCHAR}, #{isallowplay,jdbcType=NVARCHAR}, #{gametype,jdbcType=NVARCHAR}, 
+      #{gamedesc,jdbcType=NVARCHAR}, #{isinvite,jdbcType=NVARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+      <if test="major != null" >
+        major,
+      </if>
+      <if test="birth != null" >
+        birth,
+      </if>
+      <if test="signature != null" >
+        signature,
+      </if>
+      <if test="nickname != null" >
+        nickname,
+      </if>
+      <if test="qqId != null" >
+        qq_id,
+      </if>
+      <if test="hot != null" >
+        hot,
+      </if>
+      <if test="fans != null" >
+        fans,
+      </if>
+      <if test="observe != null" >
+        observe,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="isonline != null" >
+        isOnline,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="currentcity != null" >
+        currentCity,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="vipdate != null" >
+        vipDate,
+      </if>
+      <if test="isvip != null" >
+        isVip,
+      </if>
+      <if test="ispermit != null" >
+        isPermit,
+      </if>
+      <if test="page != null" >
+        page,
+      </if>
+      <if test="isroboot != null" >
+        isRoboot,
+      </if>
+      <if test="isallowplay != null" >
+        isAllowPlay,
+      </if>
+      <if test="gametype != null" >
+        gameType,
+      </if>
+      <if test="gamedesc != null" >
+        gameDesc,
+      </if>
+      <if test="isinvite != null" >
+        isInvite,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=NVARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=NVARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=NVARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=NVARCHAR},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=NVARCHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=NVARCHAR},
+      </if>
+      <if test="birth != null" >
+        #{birth,jdbcType=NVARCHAR},
+      </if>
+      <if test="signature != null" >
+        #{signature,jdbcType=NVARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=NVARCHAR},
+      </if>
+      <if test="qqId != null" >
+        #{qqId,jdbcType=NVARCHAR},
+      </if>
+      <if test="hot != null" >
+        #{hot,jdbcType=NVARCHAR},
+      </if>
+      <if test="fans != null" >
+        #{fans,jdbcType=NVARCHAR},
+      </if>
+      <if test="observe != null" >
+        #{observe,jdbcType=NVARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=NVARCHAR},
+      </if>
+      <if test="isonline != null" >
+        #{isonline,jdbcType=NVARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="currentcity != null" >
+        #{currentcity,jdbcType=NVARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vipdate != null" >
+        #{vipdate,jdbcType=NVARCHAR},
+      </if>
+      <if test="isvip != null" >
+        #{isvip,jdbcType=NVARCHAR},
+      </if>
+      <if test="ispermit != null" >
+        #{ispermit,jdbcType=NVARCHAR},
+      </if>
+      <if test="page != null" >
+        #{page,jdbcType=INTEGER},
+      </if>
+      <if test="isroboot != null" >
+        #{isroboot,jdbcType=NVARCHAR},
+      </if>
+      <if test="isallowplay != null" >
+        #{isallowplay,jdbcType=NVARCHAR},
+      </if>
+      <if test="gametype != null" >
+        #{gametype,jdbcType=NVARCHAR},
+      </if>
+      <if test="gamedesc != null" >
+        #{gamedesc,jdbcType=NVARCHAR},
+      </if>
+      <if test="isinvite != null" >
+        #{isinvite,jdbcType=NVARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

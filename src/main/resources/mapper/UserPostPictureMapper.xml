@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fastchar.likethis.dao.UserPostPictureMapper">
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.UserPostPicture">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="topicName" jdbcType="NVARCHAR" property="topicname" />
+    <result column="postCount" jdbcType="NVARCHAR" property="postcount" />
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="topicPid" jdbcType="INTEGER" property="topicpid" />
+    <result column="topicPicUrl" jdbcType="NVARCHAR" property="topicpicurl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.UserPostPicture">
+    insert into user_post_topic (id, topicName, postCount, 
+      userId, topicPid, topicPicUrl
+      )
+    values (#{id,jdbcType=INTEGER}, #{topicname,jdbcType=NVARCHAR}, #{postcount,jdbcType=NVARCHAR}, 
+      #{userid,jdbcType=INTEGER}, #{topicpid,jdbcType=INTEGER}, #{topicpicurl,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.UserPostPicture">
+    insert into user_post_topic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="topicname != null">
+        topicName,
+      </if>
+      <if test="postcount != null">
+        postCount,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="topicpid != null">
+        topicPid,
+      </if>
+      <if test="topicpicurl != null">
+        topicPicUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="topicname != null">
+        #{topicname,jdbcType=NVARCHAR},
+      </if>
+      <if test="postcount != null">
+        #{postcount,jdbcType=NVARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="topicpid != null">
+        #{topicpid,jdbcType=INTEGER},
+      </if>
+      <if test="topicpicurl != null">
+        #{topicpicurl,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.UserPostPicture">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="postId" jdbcType="INTEGER" property="postid" />
+    <result column="postPictureUrl" jdbcType="LONGNVARCHAR" property="postpictureurl" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="height" jdbcType="NVARCHAR" property="height" />
+    <result column="weight" jdbcType="NVARCHAR" property="weight" />
+    <result column="duration" jdbcType="NVARCHAR" property="duration" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.UserPostPicture">
+    insert into user_post_picture (id, postId, postPictureUrl, 
+      createTime, height, weight, 
+      duration)
+    values (#{id,jdbcType=INTEGER}, #{postid,jdbcType=INTEGER}, #{postpictureurl,jdbcType=LONGNVARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{height,jdbcType=NVARCHAR}, #{weight,jdbcType=NVARCHAR}, 
+      #{duration,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.UserPostPicture">
+    insert into user_post_picture
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="postid != null">
+        postId,
+      </if>
+      <if test="postpictureurl != null">
+        postPictureUrl,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="duration != null">
+        duration,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="postid != null">
+        #{postid,jdbcType=INTEGER},
+      </if>
+      <if test="postpictureurl != null">
+        #{postpictureurl,jdbcType=LONGNVARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=NVARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=NVARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

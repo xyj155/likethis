@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fastchar.likethis.dao.ShopListMapper" >
+  <resultMap id="BaseResultMap" type="com.fastchar.likethis.pojo.ShopList" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="shopName" property="shopname" jdbcType="NVARCHAR" />
+    <result column="shopAddress" property="shopaddress" jdbcType="NVARCHAR" />
+    <result column="destributeFree" property="destributefree" jdbcType="NVARCHAR" />
+    <result column="totalFree" property="totalfree" jdbcType="NVARCHAR" />
+    <result column="shopPicture" property="shoppicture" jdbcType="NVARCHAR" />
+    <result column="shopType" property="shoptype" jdbcType="NVARCHAR" />
+    <result column="orderCount" property="ordercount" jdbcType="NVARCHAR" />
+    <result column="special" property="special" jdbcType="NVARCHAR" />
+    <result column="city" property="city" jdbcType="NVARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="NVARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="NVARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.fastchar.likethis.pojo.ShopList" >
+    insert into shop_list (id, shopName, shopAddress, 
+      destributeFree, totalFree, shopPicture, 
+      shopType, orderCount, special, 
+      city, latitude, longitude
+      )
+    values (#{id,jdbcType=INTEGER}, #{shopname,jdbcType=NVARCHAR}, #{shopaddress,jdbcType=NVARCHAR}, 
+      #{destributefree,jdbcType=NVARCHAR}, #{totalfree,jdbcType=NVARCHAR}, #{shoppicture,jdbcType=NVARCHAR}, 
+      #{shoptype,jdbcType=NVARCHAR}, #{ordercount,jdbcType=NVARCHAR}, #{special,jdbcType=NVARCHAR}, 
+      #{city,jdbcType=NVARCHAR}, #{latitude,jdbcType=NVARCHAR}, #{longitude,jdbcType=NVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fastchar.likethis.pojo.ShopList" >
+    insert into shop_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopname != null" >
+        shopName,
+      </if>
+      <if test="shopaddress != null" >
+        shopAddress,
+      </if>
+      <if test="destributefree != null" >
+        destributeFree,
+      </if>
+      <if test="totalfree != null" >
+        totalFree,
+      </if>
+      <if test="shoppicture != null" >
+        shopPicture,
+      </if>
+      <if test="shoptype != null" >
+        shopType,
+      </if>
+      <if test="ordercount != null" >
+        orderCount,
+      </if>
+      <if test="special != null" >
+        special,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopname != null" >
+        #{shopname,jdbcType=NVARCHAR},
+      </if>
+      <if test="shopaddress != null" >
+        #{shopaddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="destributefree != null" >
+        #{destributefree,jdbcType=NVARCHAR},
+      </if>
+      <if test="totalfree != null" >
+        #{totalfree,jdbcType=NVARCHAR},
+      </if>
+      <if test="shoppicture != null" >
+        #{shoppicture,jdbcType=NVARCHAR},
+      </if>
+      <if test="shoptype != null" >
+        #{shoptype,jdbcType=NVARCHAR},
+      </if>
+      <if test="ordercount != null" >
+        #{ordercount,jdbcType=NVARCHAR},
+      </if>
+      <if test="special != null" >
+        #{special,jdbcType=NVARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=NVARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=NVARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
